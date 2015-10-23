@@ -1,0 +1,12 @@
+{
+    "autoload": {
+        "classmap": [
+            "app/"
+        ]
+    },
+    "require": {
+        "slim/slim": "~2.0",
+        "piwik/ini": "^1.0",
+        "zircote/swagger-php": "^2.0"
+    }
+}
