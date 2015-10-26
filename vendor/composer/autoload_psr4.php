@@ -6,9 +6,13 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Symfony\\Component\\Yaml\\' => array($vendorDir . '/symfony/yaml'),
     'Symfony\\Component\\Finder\\' => array($vendorDir . '/symfony/finder'),
+    'Symfony\\Component\\Filesystem\\' => array($vendorDir . '/symfony/filesystem'),
     'Symfony\\Component\\Console\\' => array($vendorDir . '/symfony/console'),
+    'Symfony\\Component\\Config\\' => array($vendorDir . '/symfony/config'),
     'Swagger\\' => array($vendorDir . '/zircote/swagger-php/src'),
     'Piwik\\Ini\\' => array($vendorDir . '/piwik/ini/src'),
+    'Phinx\\' => array($vendorDir . '/robmorgan/phinx/src/Phinx'),
     'Doctrine\\Instantiator\\' => array($vendorDir . '/doctrine/instantiator/src/Doctrine/Instantiator'),
 );
