@@ -3,13 +3,14 @@
 This application is a template for Slim based web nodes. It is written in PHP and it's goal is to serve as a base for more complex independent components.
 The application comes with a configured Swagger installation for generating documentation.
 
-##### Project Structure
+##### **Project Structure**
     /app
         /config
         /controllers
         /models
         /storage
         /views
+    /migrations
     /public
     /vendor
     composer.json
@@ -22,23 +23,38 @@ The application comes with a configured Swagger installation for generating docu
     * `/models` contains the models (see MVC)
     * `/storage` general usage directory, ie. can be used to store uploaded files.
     * `/views` contains the views, ie. html files
+* `/migrations` contains all the database migrations
 * `/public` this is the application document root. The virtual host needs to be configured with the document root pointed here.
     * `/swagger` contains the swagger-ui js client, for displaying the *APIs* swagger based documentation.
 * `/vendor` contains the applications dependencies, installed with composer.
 
-##### Dependencies
+##### **Dependencies**
 The application uses Composer for dependency management. The Composer config files are located in the project root. The dependencies are installed automatically in the `/vendor` directory.
 
 The dependencies and the composer `.json` and `.lock` files are commited to git. Any dependency updates are also to be committed to git. This is done in order to make easier deployments (by avoiding running composer commands in production).
 
-##### Using Composer
+##### **Using Composer**
 Extensive documentation can be found at https://getcomposer.org/doc/00-intro.md
 
-*Basic Commands*
+***Basic Commands***
+
 * `php composer.phar install` - installs all the packages in `composer.json`
 * `php composer.phar require author/package` - installs a new package
 
-##### Using Swagger PHP
+##### **Using Swagger PHP**
 Documentation can be found at https://github.com/zircote/swagger-php
 
 Note this template uses the `Swagger 2.0` spec and it's php implementation by `zircote`.
+
+##### **Using Phinx**
+A good and comprehensive tutorial about Phinx can be found at http://docs.phinx.org/en/latest/intro.html
+
+The `phinx.yml` file contains the database configurations phinx needs in order to operate. The default environment flag is set to `production`.
+
+***Basic Commands***
+
+* `vendor/bin/phinx status` - displays the status of the migrations.
+* `vendor/bin/phinx create MyMigrationName` - creates a new migration.
+* `vendor/bin/phinx migrate` - migrates all the down migrations.
+* `vendor/bin/phinx rollback` - rollbacks one migration. The `-t` option cna be used to rollback multiple migrations.
+

@@ -56,8 +56,6 @@ class Config
             throw new Exception("No configuration file named ". $configFileName . " exists.");
         }
 
-        //$configArray = parse_ini_file($configFileName, true);
-
         $reader = new IniReader();
         $configArray = $reader->readFile($configFileName);
 
