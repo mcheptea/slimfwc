@@ -8,5 +8,6 @@ $baseDir = dirname($vendorDir);
 return array(
     'Controllers\\Swagger\\Documentation' => $baseDir . '/app/controllers/Swagger/Documentation.php',
     'Models\\Config\\Config' => $baseDir . '/app/models/Config/Config.php',
+    'Models\\Doctrine\\EntityManager' => $baseDir . '/app/models/Doctrine/EntityManager.php',
     'Models\\Rest\\CustomResponse' => $baseDir . '/app/models/Rest/Response.php',
 );
