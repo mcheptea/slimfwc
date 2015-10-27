@@ -1,10 +1,11 @@
 # Template Slim Base application
 
 This application is a template for Slim based web nodes. It is written in PHP and it's goal is to serve as a base for more complex independent components.
-The application comes with a configured Swagger installation for generating documentation.
+The application comes with a configured Swagger installation for generating API documentation.
 
 ##### **Project Structure**
     /app
+        /commands
         /config
         /controllers
         /models
@@ -17,7 +18,8 @@ The application comes with a configured Swagger installation for generating docu
     composer.lock
     composer.phar
 
-* `/app` contains all the application's files. Here goes all your app logic goes.
+* `/app` contains all the application's files. Here goes all your app logic.
+    * `/commands` contains the configuration commands.
     * `/config` contains the config files and the `routes`. You can add any `.ini` files here and then access them with `Config`. Example: `Config::get('database.mysql.host')`
     * `/controllers` contains the controllers (see MVC)
     * `/models` contains the models (see MVC)
@@ -31,7 +33,7 @@ The application comes with a configured Swagger installation for generating docu
 ##### **Dependencies**
 The application uses Composer for dependency management. The Composer config files are located in the project root. The dependencies are installed automatically in the `/vendor` directory.
 
-The dependencies and the composer `.json` and `.lock` files are commited to git. Any dependency updates are also to be committed to git. This is done in order to make easier deployments (by avoiding running composer commands in production).
+The dependencies in `vendor/` and the composer `.json` and `.lock` files are commited to the Git repository. Any dependency updates are also to be committed to git. This is done in order to make easier deployments (by avoiding running composer commands in production).
 
 ##### **Using Composer**
 Extensive documentation can be found at https://getcomposer.org/doc/00-intro.md
@@ -58,3 +60,25 @@ The `phinx.yml` file contains the database configurations phinx needs in order t
 * `vendor/bin/phinx migrate` - migrates all the down migrations.
 * `vendor/bin/phinx rollback` - rollbacks one migration. The `-t` option cna be used to rollback multiple migrations.
 
+##### Slimer
+`slimer` is a cli based command runner. The aplication comes with a default command found in `app/commands`.
+
+Running commands example: `slimer@ghostbusters$ slimer hello World`
+
+All commands should be registered in the `slimer` file in the project root.
+
+#### Sample Installation/Deployment Flow
+This application provides a series of commands which allows quick app configuration and deployment.
+ 
+*Steps*
+
+1. Clone the repository. Example: `git clone https://github.com/mcheptea/slimfwc.git`
+2. Configure the virtual host in your Apache server. ***Note:*** The `DocumentRoot` setting SHOULD point to the `public/` directory in this project.
+3. Create a **MySQL** Database, Username and Password.
+4. Run the application configuration commands (use `--help` to see the parameter list):
+    1. Example: `php slimer hello world`
+5. Run the **phinx** migrations to bring the database up to date. Example: `vendor/bin/phinx migrate`
+
+
+#### API
+After the installation the application's API becomes available. It can be accessed by opening [http://mydomain.com/swagger/](http://mydomain.com/swagger/) in your browser.
