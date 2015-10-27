@@ -24,7 +24,7 @@ class Config
     {
         $keys = explode(".", $keyString);
 
-        $configFileName = "../app/config/".array_shift($keys).".ini";
+        $configFileName = __DIR__ . "/../../config/".array_shift($keys).".ini";
 
         if(!file_exists($configFileName)){
             throw new Exception("No configuration file named ". $configFileName . " exists.");
@@ -50,7 +50,7 @@ class Config
     {
         $keys = explode(".", $keyString);
 
-        $configFileName = "../app/config/".array_shift($keys).".ini";
+        $configFileName = __DIR__ . "/../../config/".array_shift($keys).".ini";
 
         if(!file_exists($configFileName)){
             throw new Exception("No configuration file named ". $configFileName . " exists.");

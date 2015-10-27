@@ -10,6 +10,8 @@
         "zircote/swagger-php": "^2.0",
         "doctrine/orm": "^2.5",
         "robmorgan/phinx": "^0.4.6",
-        "monolog/monolog": "^1.17"
+        "monolog/monolog": "^1.17",
+        "guzzle/guzzle": "~3.9.2",
+        "symfony/console": "~2.7.5"
     }
 }

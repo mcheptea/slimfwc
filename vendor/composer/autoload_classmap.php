@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Commands\\Hello' => $baseDir . '/app/commands/Hello.php',
     'Controllers\\Swagger\\Documentation' => $baseDir . '/app/controllers/Swagger/Documentation.php',
     'Models\\Config\\Config' => $baseDir . '/app/models/Config/Config.php',
     'Models\\Doctrine\\EntityManager' => $baseDir . '/app/models/Doctrine/EntityManager.php',
