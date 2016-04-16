@@ -33,7 +33,9 @@ The application comes with a configured Swagger installation for generating API 
 ##### **Dependencies**
 The application uses Composer for dependency management. The Composer config files are located in the project root. The dependencies are installed automatically in the `/vendor` directory.
 
-The dependencies in `vendor/` and the composer `.json` and `.lock` files are commited to the Git repository. Any dependency updates are also to be committed to git. This is done in order to make easier deployments (by avoiding running composer commands in production).
+To install the dependencies download [composer](https://getcomposer.org/download/) to the project root. Then run:
+
+    php composer.phar install
 
 ##### **Using Composer**
 Extensive documentation can be found at https://getcomposer.org/doc/00-intro.md
