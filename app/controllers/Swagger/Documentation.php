@@ -18,7 +18,7 @@ use Models\Rest\CustomResponse;
  *          @SWG\Contact(name="Mark Cheptea", email="marc.cheptea@spamina.com")
  *      ),
  *      @SWG\Parameter(
- *          name="X-Spamina-Internal-Auth-Key",
+ *          name="X-Internal-Auth-Key",
  *          required=true,
  *          type="string",
  *          in="header",
@@ -26,7 +26,7 @@ use Models\Rest\CustomResponse;
  *      ),
  *      @SWG\Response(
  *          response="401",
- *          description="Authentication failed, X-Spamina-Internal-Auth-Key is missing or is not valid."
+ *          description="Authentication failed, X-Internal-Auth-Key is missing or is not valid."
  *      ),
  *      @SWG\Response(
  *          response="500",
@@ -42,6 +42,18 @@ class Documentation {
 
     const API_PATH = "../app/controllers";
 
+    /**
+     * @SWG\Get(
+     *     tags={"api"},
+     *     path="/api/documentation",
+     *     description="Generates and returns this API's documentation.",
+     *     summary="Get API Documentation",
+     *     operationId="getAPIDocumentation",
+     *
+     *     @SWG\Response(response="200", description="The generated swagger documentation."),
+     *     @SWG\Response(response="500", description="Internal server error.")
+     * )
+     */
     public function show(){
         $swagger = Swagger\scan(self::API_PATH);
 
