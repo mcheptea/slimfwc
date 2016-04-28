@@ -7,7 +7,7 @@ use Models\Rest\CustomResponse;
 
 /**
  * @SWG\Swagger(
- *      basePath="/index.php/",
+ *      basePath="/slimfwc/public//index.php/",
  *      produces={"application/json"},
  *      consumes={"application/json", "multipart/form-data"},
  *      swagger="2.0",

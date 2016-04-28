@@ -13,6 +13,7 @@
 
 /* API */
 $app->get('/api/documentation', 'Controllers\Swagger\Documentation:show');
+$app->post('/user/:username', 'Controllers\User:create');
 
 /* Application */
 $app->get('/', function () {
